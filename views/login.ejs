@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login</title>
+    <link rel="stylesheet" href="../public/css/style.css" />
+  </head>
+  <body style="margin:0; font-family:Arial, sans-serif;">
+
+    <nav style="background:#222; color:#fff; padding:1rem;">
+      <a href="/" style="color:#fff; margin-right:1rem; text-decoration:none;">Home</a>
+      <a href="/movies" style="color:#fff; margin-right:1rem; text-decoration:none;">Movies</a>
+      <a href="/register" style="color:#fff; margin-right:1rem; text-decoration:none;">Register</a>
+      <a href="/login" style="color:#fff; margin-right:1rem; text-decoration:none;">Login</a>
+    </nav>
+
+    <main style="padding:2rem;">
+
+
+
+    <h1>Login</h1>
+
+    <% if (message) { %>
+      <div style="color: green; margin-bottom: 1rem;">
+        <%= message %>
+      </div>
+    <% } %>
+
+    <% if (errors && errors.length) { %>
+      <div style="color: red; margin-bottom: 1rem;">
+        <ul>
+          <% errors.forEach(function (e) { %>
+            <li><%= e.msg || e %></li>
+          <% }) %>
+        </ul>
+      </div>
+    <% } %>
+
+    <form action="/login" method="POST">
+      <label for="username">Username</label>
+      <input id="username" name="username" type="text"
+             value="<%= formData.username || '' %>" />
+
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" />
+
+      <button type="submit">Login</button>
+    </form>
+  </body>
+</html>

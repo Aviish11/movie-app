@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Register SUccessful</title>
+    <link rel="stylesheet" href="../public/css/style.css" />
+  </head>
+  <body style="margin:0; font-family:Arial, sans-serif;">
+
+    <nav style="background:#222; color:#fff; padding:1rem;">
+      <a href="/" style="color:#fff; margin-right:1rem; text-decoration:none;">Home</a>
+      <a href="/movies" style="color:#fff; margin-right:1rem; text-decoration:none;">Movies</a>
+      <a href="/register" style="color:#fff; margin-right:1rem; text-decoration:none;">Register</a>
+      <a href="/login" style="color:#fff; margin-right:1rem; text-decoration:none;">Login</a>
+    </nav>
+
+    <main style="padding:2rem;">
+
+
+
+    <h1>Registration Successful 🎉</h1>
+    <p>Welcome, <strong><%= username %></strong>! Your account has been created.</p>
+
+    <p>
+      Click the button below to log in:
+    </p>
+
+    <form action="/login" method="GET">
+      <button type="submit">Go to Login</button>
+    </form>
+  </body>
+</html>

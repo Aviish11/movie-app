@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Movies App</title>
+    <link rel="stylesheet" href="../../public/css/style.css"/>
+  </head>
+  <body style="margin:0; font-family:Arial, sans-serif;">
+
+    <nav style="background:#222; color:#fff; padding:1rem;">
+      <a href="/" style="color:#fff; margin-right:1rem; text-decoration:none;">Home</a>
+      <a href="/movies" style="color:#fff; margin-right:1rem; text-decoration:none;">Movies</a>
+      <a href="/register" style="color:#fff; margin-right:1rem; text-decoration:none;">Register</a>
+      <a href="/login" style="color:#fff; margin-right:1rem; text-decoration:none;">Login</a>
+    </nav>
+
+    <main style="padding:2rem;">
+
+
+  <h1>Add Movie</h1>
+
+  <form action="/movies" method="POST" style="max-width:400px;">
+    <div>
+    <label>Name</label>
+    <input type="text" name="name" value="<%= old && old.name || '' %>"  required>
+        </div>
+
+         <div>
+    <label>Description</label>
+    <textarea name="description"  required><%= old && old.description || '' %></textarea><br>
+        </div>
+
+         <div>
+    <label>Year</label>
+    <input type="number" name="year" value="<%= old && old.year || '' %>" required><br>
+</div>
+
+ <div>
+    <label>Genres (comma separated)</label>
+    <input type="text" name="genres" value="<%= old && old.genres || '' %>" required><br>
+</div>
+
+ <div>
+    <label>Rating (0–10)</label>
+    <input type="number" step="0.1" name="rating" value="<%= old && old.rating || '' %>"  required><br>
+</div>
+
+ <div>
+    <label>Poster URL (optional)</label>
+    <input type="url" name="posterUrl" value="<%= old && old.posterUrl || '' %>" ><br>
+</div>
+
+
+ <div>
+    <button type="submit">Save</button><br>
+    </div>
+
+  </form>
+
+  </body>
+</html>

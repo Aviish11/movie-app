@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Movies App</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body style="margin: 0; font-family: Arial, sans-serif">
+    <nav>
+      <a href="/">Home</a>
+      <a href="/movies">Movies</a>
+
+      <% if (!user) { %>
+      <a href="/register">Register</a>
+      <a href="/login">Login</a>
+      <% } else { %>
+      <span>Welcome, <%= user.username %></span>
+
+      <form action="/logout" method="POST" style="display: inline">
+        <button
+          type="submit"
+          style="background: none; border: none; color: blue; cursor: pointer"
+        >
+          Logout
+        </button>
+      </form>
+      <% } %>
+    </nav>
+
+    <main style="padding: 2rem"></main>
+  </body>
+</html>

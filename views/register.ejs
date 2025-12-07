@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Register</title>
+    <link rel="stylesheet" href="../public/css/style.css" />
+  </head>
+  <body style="margin:0; font-family:Arial, sans-serif;">
+
+    <nav style="background:#222; color:#fff; padding:1rem;">
+      <a href="/" style="color:#fff; margin-right:1rem; text-decoration:none;">Home</a>
+      <a href="/movies" style="color:#fff; margin-right:1rem; text-decoration:none;">Movies</a>
+      <a href="/register" style="color:#fff; margin-right:1rem; text-decoration:none;">Register</a>
+      <a href="/login" style="color:#fff; margin-right:1rem; text-decoration:none;">Login</a>
+    </nav>
+
+    <main style="padding:2rem;">
+
+
+
+
+    <h1>Register</h1>
+
+    <% if (errors && errors.length) { %>
+      <div style="color: red; margin-bottom: 1rem;">
+        <ul>
+          <% errors.forEach(function (e) { %>
+            <li><%= e.msg || e %></li>
+          <% }) %>
+        </ul>
+      </div>
+    <% } %>
+
+    <form action="/register" method="POST" style="max-width:400px;">
+      <div style="margin-bottom:1rem;">
+        <label for="username">Username</label><br />
+        <input id="username" name="username" type="text"
+               value="<%= formData.username || '' %>" style="width:100%;" />
+      </div>
+
+      <div style="margin-bottom:1rem;">
+        <label for="password">Password</label><br />
+        <input id="password" name="password" type="password" style="width:100%;" />
+      </div>
+
+      <div style="margin-bottom:1rem;">
+        <label for="confirmPassword">Confirm Password</label><br />
+        <input id="confirmPassword" name="confirmPassword" type="password" style="width:100%;" />
+      </div>
+
+      <button type="submit">Register</button>
+    </form>
+  </body>
+</html>

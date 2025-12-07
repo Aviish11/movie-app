@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Movies App</title>
+    <link rel="stylesheet" href="../../public/css/style.css" />
+  </head>
+  <body style="margin:0; font-family:Arial, sans-serif;">
+
+    <nav style="background:#222; color:#fff; padding:1rem;">
+      <a href="/" style="color:#fff; margin-right:1rem; text-decoration:none;">Home</a>
+      <a href="/movies" style="color:#fff; margin-right:1rem; text-decoration:none;">Movies</a>
+      <a href="/register" style="color:#fff; margin-right:1rem; text-decoration:none;">Register</a>
+      <a href="/login" style="color:#fff; margin-right:1rem; text-decoration:none;">Login</a>
+    </nav>
+
+    <main style="padding:2rem;">
+
+
+  <h1><%= movie.name %> (<%= movie.year %>)</h1>
+
+  <% if (movie.posterUrl) { %>
+    <img src="<%= movie.posterUrl %>" alt="<%= movie.name %>" style="max-width:200px;">
+  <% } %>
+
+  <p><strong>Genres:</strong> <%= movie.genres.join(', ') %></p>
+  <p><strong>Rating:</strong> <%= movie.rating %>/10</p>
+  <p><strong>Description:</strong> <%= movie.description %></p>
+  <p><strong>Added by:</strong> <%= movie.postedBy.username %></p>
+
+  <% if (user && String(user._id) === String(movie.postedBy._id)) { %>
+    <a href="/movies/<%= movie._id %>/edit">Edit</a>
+
+    <form action="/movies/<%= movie._id %>?_method=DELETE" method="POST" style="display:inline;">
+      <button type="submit">Delete</button>
+    </form>
+  <% } %>
+
+  <p><a href="/movies">Back to list</a></p>
+
+  </body>
+</html>
+
